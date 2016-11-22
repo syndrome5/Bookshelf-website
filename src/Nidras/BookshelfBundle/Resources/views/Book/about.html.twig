@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <![endif]-->
+      <title>Nich - About</title>
+      <!-- BOOTSTRAP CORE STYLE CSS -->
+      <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
+      <!-- FONTAWESOME STYLE CSS -->
+      <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+      <!-- CUSTOM STYLE CSS -->
+      <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+   </head>
+   <body >
+      <div class="navbar navbar-inverse navbar-fixed-top " >
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="{{ path('nidras_bookshelf_home') }}" ><strong style=""></strong> <i class="fa fa-book"></i> Nich <small >online library</small></a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+               <ul class="nav navbar-nav navbar-right set-links">
+                  <li><a href="{{ path('nidras_bookshelf_home') }}">HOME</a></li>
+				  <li><a href="{{ path('nidras_bookshelf_list') }}">LIST</a></li>
+                  <li><a href="{{ path('nidras_bookshelf_about') }}" class="active-menu-item">ABOUT</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!--MENU SECTION END-->
+      <section class="headline-sec">
+         <div class="overlay ">
+            <h3 >About <i class="fa fa-angle-double-right "></i></h3>
+         </div>
+      </section>
+      <!--HOME SECTION END-->
+      <section>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12" style="min-height:800px;">
+                  <!--<div class="alert alert-info" >
+                     This is the blank page that you can use to customize or add you content in this template. For more templates keep looking <a href="http://www.binarytheme.com" target="_blank"  >binarytheme.com</a>
+                  </div>-->
+				  NICH is for NIdras and CHeytac, the two creators.<br/>
+				  We are two students of engineering school at the ESIEA in 4th year and the objective of this site is to practice our knowledge in web using:<br/>
+				  <u>
+					<li> - HTML/CSS</li>
+					<li> - PHP</li>
+					<li> - <b>Symfony</b> (MVC)</li>
+					<li> - Base de données</li>
+				  </u>
+				  <img src="{{ asset('assets/img/esiea.jpg') }}" />
+               </div>
+            </div>
+         </div>
+      </section>
+      <div style="height:2px;background-color:white;" ></div>
+      <div class="copy-txt">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 set-foot" >
+                  &copy 2016 Nich | All rights reserved</a> 
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- COPY TEXT SECTION END-->
+      <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+      <!-- CORE JQUERY  -->
+      <script src="{{ asset('assets/js/jquery-1.11.1.js') }}"></script>
+      <!-- BOOTSTRAP SCRIPTS  -->
+      <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+      <!-- CUSTOM SCRIPTS  -->
+      <script src="{{ asset('assets/js/custom.js') }}"></script>
+   </body>
+</html>

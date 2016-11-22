@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <![endif]-->
+      <title>Nich</title>
+      <!-- BOOTSTRAP CORE STYLE CSS -->
+      <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
+      <!-- FONTAWESOME STYLE CSS -->
+      <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+      <!-- CUSTOM STYLE CSS -->
+      <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+   </head>
+   <body >
+      <div class="navbar navbar-inverse navbar-fixed-top " >
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="{{ path('nidras_bookshelf_home') }}" ><strong style=""></strong> <i class="fa fa-book"></i> Nich <small >online library</small></a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+               <ul class="nav navbar-nav navbar-right set-links">
+                  <li><a href="{{ path('nidras_bookshelf_home') }}" class="active-menu-item">HOME</a></li>
+				  <li><a href="{{ path('nidras_bookshelf_list') }}">LIST</a></li>
+                  <li><a href="{{ path('nidras_bookshelf_about') }}">ABOUT</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!--MENU SECTION END-->
+      <section id="home-sec">
+         <div class="overlay text-center">
+            <h1>Share your experience !</h1>
+            <hr class="hr-set"/>
+            <p>Mark your last reading and discover from others</p>
+         </div>
+      </section>
+      <!--HOME SECTION END-->
+      <section id="search-domain" >
+         <div class="container">
+            <div class="row">
+			   {{ form_start(form_search) }}
+			   {{ form_errors(form_search) }}
+               <div class="col-md-8">
+				  {{ form_widget(form_search.title, {'attr': {'class': 'form-control input-cls','placeholder': 'Harry potter, Lord of the ring, cook for newbies...'}}) }}
+			   </div>
+               <div class="col-md-4">
+				  {{ form_widget(form_search.save, {'attr': {'class': 'btn btn-info btn-lg btn-set'}}) }}
+               </div>
+			   {{ form_end(form_search) }}
+            </div>
+         </div>
+      </section>
+      <!--SEARCH SECTION END-->
+      <section id="services-sec">
+         <div class="container">
+            <div class="row text-center" >
+               <div class="col-md-4">
+                  <i class="fa fa-edit fa-5x icon-custom-1 color-1"></i>
+                  <h3>Write your review</h3>
+                  <p>
+                     Mark it, comment it and describe it with several words.
+					 If it was a good experience, share it !
+                  </p>
+               </div>
+               <div class="col-md-4">
+                  <i class="fa fa-users fa-5x icon-custom-1 color-1"></i>
+                  <h3>Discover</h3>
+                  <p>
+                     You will find your future favorite book thanks to others users.
+                  </p>
+               </div>
+               <div class="col-md-4">
+                  <i class="fa fa-clock-o fa-5x icon-custom-1 color-1"></i>
+                  <h3>7/7 24/24 Disponibility</h3>
+                  <p>
+                     The service never stop, use it when you want and where you want.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <div style="height:2px;background-color:white;" ></div>
+      <div class="copy-txt">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 set-foot" >
+                  &copy 2016 Nich | All rights reserved</a> 
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- COPY TEXT SECTION END-->
+      <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+      <!-- CORE JQUERY  -->
+      <script src="{{ asset('assets/js/jquery-1.11.1.js') }}"></script>
+      <!-- BOOTSTRAP SCRIPTS  -->
+      <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+      <!-- CUSTOM SCRIPTS  -->
+      <script src="{{ asset('assets/js/custom.js') }}"></script>
+   </body>
+</html>

@@ -1,0 +1,2 @@
+nidras_bookshelf:
+    resource: "@NidrasBookshelfBundle/Resources/config/routing.php"

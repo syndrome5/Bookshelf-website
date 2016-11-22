@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <![endif]-->
+      <title>Nich - List</title>
+      <!-- BOOTSTRAP CORE STYLE CSS -->
+      <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet" />
+      <!-- FONTAWESOME STYLE CSS -->
+      <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" />
+      <!-- CUSTOM STYLE CSS -->
+      <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+   </head>
+   <body >
+      <div class="navbar navbar-inverse navbar-fixed-top " >
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="{{ path('nidras_bookshelf_home') }}" ><strong style=""></strong> <i class="fa fa-book"></i> Nich <small >online library</small></a>
+            </div>
+            <div class="navbar-collapse collapse move-me">
+               <ul class="nav navbar-nav navbar-right set-links">
+                  <li><a href="{{ path('nidras_bookshelf_home') }}">HOME</a></li>
+				  <li><a href="{{ path('nidras_bookshelf_list') }}" class="active-menu-item">LIST</a></li>
+                  <li><a href="{{ path('nidras_bookshelf_about') }}">ABOUT</a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!--MENU SECTION END-->
+      <section class="headline-sec">
+         <div class="overlay ">
+            <h3 >List <i class="fa fa-angle-double-right "></i></h3>
+         </div>
+      </section>
+      <!--HOME SECTION END-->
+      <section>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12" style="min-height:800px;">
+                  <div class="alert alert-info" >
+                     Be respectful in modifications of books please.</a>
+                  </div>
+				    
+				  <div id="table" class="table-editable">
+					<table class="table">
+					  <tr>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Editor</th>
+						<th>Date</th>
+						<th>Category</th>
+						<th>Mark</th>
+					  </tr>
+					  {% for book in books %}
+					  <tr class="clickable-row" data-href="{{ path('nidras_bookshelf_view', {'id': book.id}) }}">
+						<td>{{ book.title }}</td>
+						<td>{{ book.author }}</td>
+						<td>{{ book.editor }}</td>
+						<td>{{ book.date|date('d-m-Y') }}</td>
+						<td>{{ book.category }}</td>
+						<td><div class="row lead" style="margin-left:0px;margin-bottom:0px;">
+						{% if book.mark > 0 %}
+							{% for i in 0..book.mark-1 %}
+						<span class="glyphicon .glyphicon-star-empty glyphicon-star"></span>
+							{% endfor %}
+						{% endif %}
+						{% for i in 0..(5-book.mark-1) %}
+						<span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span>
+						{% endfor %}
+						</div></td>
+					  </tr>
+					  {% endfor %}
+					</table>
+				  </div>
+				  
+				    
+					<p data-placement="top" data-toggle="tooltip" title="Add"><button class="btn btn-primary btn-info" data-title="Add" data-toggle="modal" data-target="#add" ><span class="glyphicon glyphicon-check"></span> Add my book !</button></p>
+	
+               </div>
+            </div>
+         </div>
+      </section>
+      <div style="height:2px;background-color:white;" ></div>
+      <div class="copy-txt">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 set-foot" >
+                  &copy 2016 Nich | All rights reserved</a> 
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- COPY TEXT SECTION END-->
+      <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+      <!-- CORE JQUERY  -->
+      <script src="{{ asset('assets/js/jquery-1.11.1.js') }}"></script>
+      <!-- BOOTSTRAP SCRIPTS  -->
+      <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+      <!-- CUSTOM SCRIPTS  -->
+      <script src="{{ asset('assets/js/custom.js') }}"></script>
+      <!-- TAB  -->
+      <script src="{{ asset('assets/js/tab.js') }}"></script>
+   </body>
+   
+   				
+   <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+	   <div class="modal-dialog">
+		  <div class="modal-content">
+		  {{ form_start(form_add) }}
+		  {{ form_errors(form_add) }}
+			 <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+				<h4 class="modal-title custom_align" id="Heading">Add the book</h4>
+			 </div>
+			 <div class="modal-body">
+				<div class="form-group">
+					{{ form_widget(form_add.title, {'attr': {'class': 'form-control','placeholder': 'Title'}}) }}
+				</div>
+				<div class="form-group">
+					{{ form_widget(form_add.author, {'attr': {'class': 'form-control','placeholder': 'Author'}}) }}
+				</div>
+				<div class="form-group">
+					Date {{ form_widget(form_add.date, {'attr': {'class': 'form-control','placeholder': 'Date'}}) }} 
+				</div>
+				<div class="form-group">
+					{{ form_widget(form_add.editor, {'attr': {'class': 'form-control','placeholder': 'Editor'}}) }}
+				</div>
+				<div class="form-group">
+					{{ form_widget(form_add.publisher, {'attr': {'class': 'form-control','placeholder': 'Publisher'}}) }}
+				</div>
+				<div class="form-group">
+					{{ form_widget(form_add.pages, {'attr': {'class': 'form-control','placeholder': 'Pages'}}) }}
+				</div>
+				<div class="form-group">
+					{{ form_widget(form_add.category, {'attr': {'class': 'form-control','placeholder': 'Category'}}) }}
+				</div>
+				<div class="form-group">
+					{{ form_widget(form_add.summary, {'attr': {'class': 'form-control','placeholder': 'Summary'}}) }}
+				</div>
+				<div class="form-group">
+					Mark
+					{{ form_widget(form_add.mark, {'attr': {'class': 'form-control'}}) }}
+				</div>
+				<div class="form-group">
+				    {{ form_widget(form_add.comment, {'attr': {'class': 'form-control','placeholder': 'Comment'}}) }}
+				</div>
+			 </div>
+			 <div class="modal-footer ">
+				{{ form_widget(form_add.save, {'attr': {'class': 'btn btn-success btn-lg'}}) }}
+			 </div>
+		  {{ form_end(form_add) }}
+		  </div>
+	   </div>
+	</div>
+</html>
